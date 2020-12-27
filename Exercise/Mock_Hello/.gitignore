@@ -1,0 +1,16 @@
+# 版本控制忽略文件
+# idea
+*.iml
+.idea/
+*.ipr
+*.iws
+
+
+# npm pack
+**node_modules/
+
+# gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+build/

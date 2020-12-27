@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"name": "RESTful API",
+			"path": "RESTful API"
+		},
+		{
+			"path": "Exercise"
+		},
+		{
+			"path": "Framework"
+		},
+		{
+			"path": "Grammar"
+		},
+		{
+			"path": "Tests"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "test"
+	}
+}
