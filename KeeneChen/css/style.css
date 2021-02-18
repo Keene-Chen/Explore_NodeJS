@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "holyunion";
+    src: url("../res/holyunion.ttf");
+}
+
+* a {
+    text-decoration: none;
+    color: #b55756;
+    display: block;
+}
+
+body {
+    font-family: "LXGW WenKai Screen", sans-serif;
+    background-color: pink;
+}
+
+.header>a {
+    font-family: "holyunion";
+    font-size: 100px;
+}
+
+.center>ul {
+    text-decoration: none;
+    color: #b55756;
+}
+
+.center #hitokoto_text {
+    font-size: xx-large;
+    display: inline;
+}
+
+button {
+    color: #b55756;
+    background-color: #ffffff00;
+    font-size: large;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+.bottom #banquan {
+    font-family: "holyunion", "LXGW WenKai Screen";
+    font-size: 20px;
+}

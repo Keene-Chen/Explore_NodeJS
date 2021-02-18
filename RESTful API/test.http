@@ -1,5 +1,10 @@
 # 
-@hostname = http://10.10.12.152/iclock/cdata
-GET {{hostname}}?SN=bailanjun HTTP/1.1
+@hostname = http://134.175.221.21:8001/login
+POST {{hostname}} HTTP/1.1
 
+<<<<<<< HEAD
 172.31.10.239
+=======
+###
+GET http://localhost:3000/comments
+>>>>>>> 3672357 (axios)
