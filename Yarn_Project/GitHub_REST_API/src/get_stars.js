@@ -49,28 +49,30 @@ const fetchAllStarredRepos = async () => {
   }
 };
 
-fetchAllStarredRepos().then((res) => {
-  fs.writeFile(
-    'E:/ZM/NodeJS/Yarn_Project/Yarn_Test/starred_repos.json',
-    JSON.stringify(
-      res.map((repo) => {
-        return {
-          name: repo.repo.name,
-          full_name: repo.repo.full_name,
-          html_url: repo.repo.html_url,
-          description: repo.repo.description,
-          topics: repo.repo.topics,
-          language: repo.repo.language,
-          starred_at: repo.starred_at,
-          created_at: repo.repo.created_at,
-          updated_at: repo.repo.updated_at,
-          pushed_at: repo.repo.pushed_at,
-        };
-      })
-    ),
-    (err) => {
-      if (err) throw err;
-      console.log('Data written to file');
-    }
-  );
-});
+// fetchAllStarredRepos().then((res) => {
+//   fs.writeFile(
+//     'E:/ZM/NodeJS/Yarn_Project/GitHub_REST_API/res/starred_repos.json',
+//     JSON.stringify(
+//       res.map((repo) => {
+//         return {
+//           name: repo.repo.name,
+//           full_name: repo.repo.full_name,
+//           html_url: repo.repo.html_url,
+//           description: repo.repo.description,
+//           topics: repo.repo.topics,
+//           language: repo.repo.language,
+//           starred_at: repo.starred_at,
+//           created_at: repo.repo.created_at,
+//           updated_at: repo.repo.updated_at,
+//           pushed_at: repo.repo.pushed_at,
+//         };
+//       })
+//     ),
+//     (err) => {
+//       if (err) throw err;
+//       console.log('Data written to file');
+//     }
+//   );
+// });
+
+module.exports = fetchAllStarredRepos;
