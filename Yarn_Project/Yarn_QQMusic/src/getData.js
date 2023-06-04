@@ -1,52 +1,38 @@
-const axios = require('axios').default;
-const { log } = require('console');
-const fs = require('fs');
+const axios = require("axios").default;
+const fs = require("fs");
 
 let GLOBAL_CONFIG = {
   QQ: 2421985222,
 };
 
 const kc_qqmusic = axios.create({
-  baseURL: 'http://127.0.0.1:3300',
+  baseURL: "http://127.0.0.1:3300",
   timeout: 1000,
 });
 
 // 获取用户创建歌单
-function getUserCreatedPlaylist() {
-  kc_qqmusic
-    .post('/user/songlist', {
+const getUserCreatedPlaylist = async () => {
+  try {
+    const res = await kc_qqmusic.post("/user/songlist", {
       id: GLOBAL_CONFIG.QQ,
-    })
-    .then(res => {
-      let data = res.data.data.list;
-      data
-        .sort((a, b) =>
-          a.diss_name.localeCompare(b.diss_name, 'zh-Hans-CN', {
-            sensitivity: 'accent',
-          }),
-        )
-        .forEach(e => {
-          console.log(e.diss_name);
-        });
-    })
-    .catch(err => {
-      console.log(err);
     });
-}
-
-getUserCreatedPlaylist();
+    return [...res.data.data.list];
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 // 获取用户收藏歌单
 function userFavoritePlaylists() {
   kc_qqmusic
-    .post('/user/collect/songlist', {
+    .post("/user/collect/songlist", {
       id: GLOBAL_CONFIG.QQ,
     })
-    .then(res => {
+    .then((res) => {
       let data = res.data.data;
       console.log(data);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 }
@@ -54,15 +40,15 @@ function userFavoritePlaylists() {
 // 获取用户收藏专辑
 function userFavoriteAlbums() {
   kc_qqmusic
-    .post('/user/collect/album', {
+    .post("/user/collect/album", {
       id: GLOBAL_CONFIG.QQ,
     })
-    .then(res => {
-      res.data.data.list.forEach(e => {
+    .then((res) => {
+      res.data.data.list.forEach((e) => {
         console.log(e.albumname, e.singername, e.songnum);
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 }
@@ -70,14 +56,14 @@ function userFavoriteAlbums() {
 // 获取歌单详情
 function test() {
   kc_qqmusic
-    .post('/songlist', {
+    .post("/songlist", {
       id: GLOBAL_CONFIG.QQ,
     })
-    .then(res => {
+    .then((res) => {
       let data = res.data.data;
       console.log(data);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 }
@@ -89,12 +75,19 @@ function sortChinese(arr, dataLeven) {
     // 参数： option 数组元素
     if (!dataLeven) return option;
     var data = option;
-    dataLeven.split('.').filter(function (item) {
+    dataLeven.split(".").filter(function (item) {
       data = data[item];
     });
-    return data + '';
+    return data + "";
   }
   arr.sort(function (item1, item2) {
-    console.log(getValue(item1).localeCompare(getValue(item2), 'zh-CN'));
+    console.log(getValue(item1).localeCompare(getValue(item2), "zh-CN"));
   });
 }
+
+module.exports = {
+  getUserCreatedPlaylist,
+  userFavoritePlaylists,
+  userFavoriteAlbums,
+  test,
+};

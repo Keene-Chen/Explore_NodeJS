@@ -1,7 +1,11 @@
 {
-  "packageManager": "yarn@3.1.1",
+  "name": "Yarn_WebSocket",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "packageManager": "yarn@3.6.0",
   "dependencies": {
     "websocket": "^1.0.34",
-    "ws": "^8.4.0"
+    "ws": "^8.13.0"
   }
 }
