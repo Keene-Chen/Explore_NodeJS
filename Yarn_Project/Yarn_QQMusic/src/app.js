@@ -115,3 +115,11 @@ const db = mongoose.connection;
 db.once("open", () => {
   console.log("数据库连接成功");
 });
+
+db.once("close", () => {
+  console.log("数据库已断开");
+});
+
+db.once("error", (error) => {
+  console.log("数据库出错", error);
+});
