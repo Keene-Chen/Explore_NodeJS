@@ -7,10 +7,10 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/Exercise/[!J]*": true,
-        "**/Exercise/Js_[A-D]*": true,
-        "**/Exercise/Js_[F-L]*": true,
-        "**/Exercise/Js_[N-Z]*": true,
-        "**/Exercise/Js_E[!x]*": true,
-        "**/Exercise/Js_M[!y]*": true,
+        "**/Exercise/Js_[A-D]*": false,
+        "**/Exercise/Js_[F-L]*": false,
+        "**/Exercise/Js_[N-Z]*": false,
+        "**/Exercise/Js_E[!x]*": false,
+        "**/Exercise/Js_M[!y]*": false,
     }
 }

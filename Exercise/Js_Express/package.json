@@ -13,11 +13,12 @@
     "jade": "^1.11.0",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
+    "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "pug": "^3.0.2"
   },
   "scripts": {
-    "app": "nodemon ./src/app.js"
+    "app": "nodemon ./06_API_Server/app.js"
   },
   "type": "commonjs"
 }

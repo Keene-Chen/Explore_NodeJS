@@ -1,3 +1,10 @@
+/**
+ * @file    : index.js
+ * @author  : KeeneChen
+ * @date    : 2023.06.12-10:48:47
+ * @details : 数据库连接模块
+ */
+
 const mysql = require('mysql');
 
 const db = mysql.createPool({
