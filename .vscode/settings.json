@@ -1,3 +1,16 @@
 {
-    "iis.configDir": ""
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/Exercise/[!J]*": true,
+        "**/Exercise/Js_[A-D]*": true,
+        "**/Exercise/Js_[F-L]*": true,
+        "**/Exercise/Js_[N-Z]*": true,
+        "**/Exercise/Js_E[!x]*": true,
+        "**/Exercise/Js_M[!y]*": true,
+    }
 }

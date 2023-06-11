@@ -1,9 +1,10 @@
 {
-  "name": "Js_MySQL",
+  "name": "Js_Antv",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "mysql": "^2.18.1"
-  }
+    "@antv/g2": "^5.0.12"
+  },
+  "type": "module"
 }
