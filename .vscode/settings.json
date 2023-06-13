@@ -6,7 +6,7 @@
         "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
-        "**/Exercise/[!J]*": true,
+        "**/Exercise/[!J]*": false,
         "**/Exercise/Js_[A-D]*": false,
         "**/Exercise/Js_[F-L]*": false,
         "**/Exercise/Js_[N-Z]*": false,

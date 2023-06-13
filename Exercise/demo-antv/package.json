@@ -1,0 +1,10 @@
+{
+  "name": "@keenechen/demo-antv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@antv/g2": "^5.0.12"
+  },
+  "type": "module"
+}
