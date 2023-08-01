@@ -1,10 +1,16 @@
 {
-  "name": "mongodb_hello",
+  "name": "@keenechen/demo-mongodb",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "dependencies": {
-    "mongodb": "^3.6.2",
-    "mongoose": "^5.10.8"
+    "mongodb": "^5.6.0",
+    "mongoose": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "chalk": "^5.2.0",
+    "ts-node": "^10.9.1"
   }
 }
