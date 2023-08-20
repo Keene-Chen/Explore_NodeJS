@@ -1,0 +1,16 @@
+{
+	"name": "pnpm_mqtt",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"dev": "node src/index.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"type": "module",
+	"devDependencies": {
+		"mqtt": "^5.0.3"
+	}
+}
