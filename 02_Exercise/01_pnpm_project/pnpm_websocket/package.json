@@ -1,5 +1,5 @@
 {
-  "name": "pnpm_websocket",
+  "name": "@keenechen/pnpm_websocket",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

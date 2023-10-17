@@ -1,15 +1,14 @@
 {
-  "name": "@keenechen/pnpm_lodash",
+  "name": "@keenechen/antv_hello",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@antv/g2plot": "^2.4.31"
   }
 }

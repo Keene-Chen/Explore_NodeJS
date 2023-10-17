@@ -1,5 +1,5 @@
 {
-  "name": "github_trend_api",
+  "name": "@keenechen/github_trend_api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

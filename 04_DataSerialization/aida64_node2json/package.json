@@ -1,5 +1,5 @@
 {
-  "name": "@keenechen/pnpm_lodash",
+  "name": "@keenechen/aida64_node2json",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "aida64-to-json": "^1.1.0",
+    "mongodb": "^6.1.0",
+    "node-wmi": "^0.0.5"
   }
 }

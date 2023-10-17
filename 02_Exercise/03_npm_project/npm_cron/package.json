@@ -1,15 +1,16 @@
 {
-  "name": "@keenechen/pnpm_lodash",
+  "name": "@keenechen/npm_cron",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "cron": "^1.8.2",
+    "dayjs": "^1.9.7"
   }
 }

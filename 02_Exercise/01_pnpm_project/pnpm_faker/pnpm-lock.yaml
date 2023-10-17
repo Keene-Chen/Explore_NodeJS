@@ -1,0 +1,24 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  community-faker:
+    specifier: ^5.5.5
+    version: 5.5.5
+  faker:
+    specifier: ^6.6.6
+    version: 6.6.6
+
+packages:
+
+  /community-faker@5.5.5:
+    resolution: {integrity: sha512-v+MZzImggJcT6+erXLTIV+e29quAciSPbs+6iG8xziRJRrFSR9BtdfVYN78y28d1O6HOTMjtO7VzlBYHnzY+7A==}
+    dev: false
+
+  /faker@6.6.6:
+    resolution: {integrity: sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==}
+    deprecated: '[WARNING] Use 5.5.3 instead of 6.6.6, reason: Please use https://github.com/MilosPaunovic/community-faker instead'
+    dev: false
