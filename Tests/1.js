@@ -23,10 +23,9 @@ class Person {
 }
 
 const stu1 = new Person('zhangsan', 20, 109);
-console.log('%c [ stu1 ]-26', 'font-size:13px; background:pink; color:#bf2c9f;', stu1)
+console.log('%c [ stu1 ]-26', 'font-size:13px; background:pink; color:#bf2c9f;', stu1);
 
-
-console.log('%c [  ]-29', 'font-size:13px; background:pink; color:#bf2c9f;', )
+console.log('%c [  ]-29', 'font-size:13px; background:pink; color:#bf2c9f;');
 
 console.log(stu1.getName());
 
