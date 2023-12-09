@@ -130,3 +130,6 @@ dist
 .yarn/build-state.yml
 .pnp.*
 .yarnrc.*
+
+# pnpm
+**/pnpm-lock.yaml
