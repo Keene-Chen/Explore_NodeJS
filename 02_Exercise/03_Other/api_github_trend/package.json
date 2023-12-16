@@ -1,6 +1,7 @@
 {
-  "name": "@keenechen/demo_redis",
+  "name": "@keenechen/api_github_trend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,8 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "redis": "^4.6.11"
+    "axios": "^1.5.1",
+    "cheerio": "1.0.0-rc.12",
+    "lodash": "^4.17.21",
+    "node-fetch": "2"
   }
 }

@@ -1,6 +1,7 @@
 {
-  "name": "@keenechen/demo_redis",
+  "name": "@keenechen/demo_lodash",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -8,8 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
-    "redis": "^4.6.11"
+    "lodash": "^4.17.21"
   }
 }
