@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000
+
+# 新增用户
+POST {{baseUrl}}/create HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "keenechen2",
+  "password": "123456",
+  "email": "keenechen@qq.com2"
+}
+
+# 删除用户
+DELETE {{baseUrl}}/delete HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "1"
+}
+
+# 更新用户
+PUT {{baseUrl}}/update HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "1",
+  "username": "aaa4",
+  "email": "aaa@qq.com"
+}
+
+# 查询所有-关联查找
+GET {{baseUrl}}/ HTTP/1.1
+
+# 查询单个
+GET {{baseUrl}}/user/1 HTTP/1.1

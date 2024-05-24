@@ -1,0 +1,9 @@
+{
+  "name": "@keenechen/demo_sql_server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mssql": "^10.0.2"
+  }
+}

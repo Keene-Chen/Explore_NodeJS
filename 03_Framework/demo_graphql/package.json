@@ -1,0 +1,11 @@
+{
+  "name": "@keenechen/demo_graphql",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.8.1"
+  }
+}

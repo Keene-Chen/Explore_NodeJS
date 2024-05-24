@@ -1,0 +1,9 @@
+packages:
+  # all packages in direct subdirs of packages/
+  - 'packages/*'
+  - '01_Grammar/*'
+  - '02_Exercise/*'
+  - '03_Framework/*'
+  - '04_DataSerialization/*'
+  - '05_DataBase/*'
+  - '06_Ajax/*'

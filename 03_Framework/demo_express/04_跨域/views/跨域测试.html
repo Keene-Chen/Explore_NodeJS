@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跨域测试</title>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+</head>
+
+<body>
+  <button id="btn1">GET</button>
+  <button id="btn2">POST</button>
+  <button id="btn3">DELETE</button>
+  <button id="btn4">JSONP</button>
+  <script>
+    $(() => {
+      // 1. GET请求
+      $('#btn1').click(() => {
+        $.get('http://localhost:3000/api/get', {
+          name: 'zs',
+          age: 18
+        }, (data) => {
+          console.log(data)
+        })
+      })
+
+      // 2. POST请求
+      $('#btn2').click(() => {
+        $.post('http://localhost:3000/api/post', {
+          name: 'zs',
+          age: 18
+        }, (data) => {
+          console.log(data)
+        })
+      })
+      // 3. DELETE请求
+      $('#btn3').click(() => {
+        $.ajax({
+          type: 'DELETE',
+          url: 'http://localhost:3000/api/delete',
+          success: (data) => {
+            console.log(data)
+          }
+        })
+      })
+      // 4. JSONP请求
+      $('#btn4').on('click', function () {
+        $.ajax({
+          type: 'GET',
+          url: 'http://localhost:3000/api/jsonp',
+          dataType: 'jsonp',
+          success: function (res) {
+            console.log(res)
+          },
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>

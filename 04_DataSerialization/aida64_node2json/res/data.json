@@ -1,0 +1,46 @@
+{
+  "SDATE": {
+    "label": "Date",
+    "value": "2023.10.13"
+  },
+  "STIME": {
+    "label": "Time",
+    "value": "18:28:27"
+  },
+  "STIMENS": {
+    "label": "Time (HH:MM)",
+    "value": "18:28"
+  },
+  "SUPTIME": {
+    "label": "UpTime",
+    "value": "2d 02:46:24"
+  },
+  "SUPTIMENS": {
+    "label": "UpTime (HH:MM)",
+    "value": "2d 02:46"
+  },
+  "SMEMUTI": {
+    "label": "Memory Utilization",
+    "value": "44"
+  },
+  "SUSEDMEM": {
+    "label": "Used Memory",
+    "value": "7127"
+  },
+  "SFREEMEM": {
+    "label": "Free Memory",
+    "value": "9039"
+  },
+  "SUSEDVMEM": {
+    "label": "Used Video Memory",
+    "value": "1102"
+  },
+  "SFREEVMEM": {
+    "label": "Free Video Memory",
+    "value": "2994"
+  },
+  "SMASTVOL": {
+    "label": "Master Volume",
+    "value": "12"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "author": "KeeneChen",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "@keenechen/pnpm_axios",
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 120,
+    "proseWrap": "preserve",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "server": "node ./server/index.js"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "vite": "^5.2.11",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "1.4.5-lts.1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "@keenechen/aida64_node2json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aida64-to-json": "^1.1.0",
+    "mongodb": "^6.6.2",
+    "node-wmi": "^0.0.5"
+  }
+}
