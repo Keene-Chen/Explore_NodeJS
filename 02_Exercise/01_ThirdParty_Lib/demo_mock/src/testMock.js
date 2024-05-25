@@ -1,4 +1,4 @@
-const Mock = require('mockjs');
+import Mock from 'mockjs';
 
 let obj = {
   number: Mock.Random.integer(),
