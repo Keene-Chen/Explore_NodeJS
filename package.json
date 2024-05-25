@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "KeeneChen <keenechen@qq.com>",
-  "license": "GPL-3.0-only"
+  "license": "GPL-3.0-only",
+  "private": true,
+  "devDependencies": {
+    "rimraf": "^5.0.7"
+  }
 }
