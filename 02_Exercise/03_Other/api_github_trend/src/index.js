@@ -1,7 +1,7 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const { default: axios } = require('axios');
 const cheerio = require('cheerio');
-const fs = require('fs');
-const path = require('path');
 const { fetchRepositories } = require('./fetch');
 
 const GITHUB_URL = 'https://github.com';
@@ -29,9 +29,11 @@ $('.Box article.Box-row')
   .map((repo) => {
     const $repo = $(repo);
     const title = $repo.find('.h3').text().trim();
-    const [username, repoName] = title.split('/').map((v) => v.trim());
+    const [username, repoName] = title.split('/').map(v => v.trim());
     const relativeUrl = $repo.find('.h3').find('a').attr('href');
-    const currentPeriodStarsString = $repo.find('.float-sm-right').text().trim() || /* istanbul ignore next */ '';
+    const currentPeriodStarsString
+      = $repo.find('.float-sm-right').text().trim()
+      /* istanbul ignore next */ || '';
 
     const builtBy = $repo
       .find('span:contains("Built by")')
@@ -40,7 +42,9 @@ $('.Box article.Box-row')
         const altString = $(user).children('img').attr('alt');
         const avatarUrl = $(user).children('img').attr('src');
         return {
-          username: altString ? altString.slice(1) : /* istanbul ignore next */ null,
+          username: altString
+            ? altString.slice(1)
+            : /* istanbul ignore next */ null,
           href: `${GITHUB_URL}${user.attribs.href}`,
           // avatar: removeDefaultAvatarSize(avatarUrl),
         };
@@ -48,10 +52,15 @@ $('.Box article.Box-row')
       .get();
 
     const colorNode = $repo.find('.repo-language-color');
-    const langColor = colorNode.length ? colorNode.css('background-color') : null;
+    const langColor = colorNode.length
+      ? colorNode.css('background-color')
+      : null;
 
     const langNode = $repo.find('[itemprop=programmingLanguage]');
 
-    const lang = langNode.length ? langNode.text().trim() : /* istanbul ignore next */ null;
+    const lang = langNode.length
+      ? langNode.text().trim()
+      : /* istanbul ignore next */ null;
     console.log(username, repoName, relativeUrl);
+    return true;
   });

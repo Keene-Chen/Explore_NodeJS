@@ -1,9 +1,9 @@
 {
   "name": "@keenechen/demo_mongodb",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
   "type": "module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
   "dependencies": {
     "mongodb": "^6.6.2",
     "mongoose": "^7.6.12"

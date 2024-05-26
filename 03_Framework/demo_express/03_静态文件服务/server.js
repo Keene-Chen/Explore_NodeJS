@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+
 const app = express();
 const port = 3000;
 
@@ -25,6 +26,7 @@ app.use('*', (req, res) => {
 
 app.use((err, req, res, next) => {
   res.status(500).render('500');
+  console.log(err);
 });
 
 app.listen(port, () => {

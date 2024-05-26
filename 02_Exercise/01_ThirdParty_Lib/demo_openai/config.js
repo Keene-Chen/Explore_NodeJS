@@ -1,4 +1,4 @@
-let config = {
+const config = {
   OPENAI_API_KEY: 'sssssssss',
   proxy: {
     host: '127.0.0.1',

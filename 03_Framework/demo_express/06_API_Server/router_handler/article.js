@@ -6,9 +6,9 @@
  */
 
 // 导入数据库操作模块
+const path = require('node:path');
 const db = require('../db/mysql');
 // 导入处理路径的 path 核心模块
-const path = require('path');
 
 // 发布新文章的处理函数
 exports.addArticle = (req, res) => {
@@ -31,8 +31,10 @@ exports.addArticle = (req, res) => {
 
   const insertSql = `insert into ev_articles set ?`;
   db.query(insertSql, articleInfo, (err, results) => {
-    if (err) return res.cc(err);
-    if (results.affectedRows !== 1) return res.cc('发布新文章失败！');
+    if (err)
+      return res.cc(err);
+    if (results.affectedRows !== 1)
+      return res.cc('发布新文章失败！');
     res.cc('发布文章成功！', 0);
   });
 };
@@ -41,7 +43,8 @@ exports.addArticle = (req, res) => {
 exports.getArticleList = (req, res) => {
   const querySql = `select * from ev_articles where is_delete=0 order by id desc`;
   db.query(querySql, (err, results) => {
-    if (err) return res.cc(err);
+    if (err)
+      return res.cc(err);
     res.send({
       status: 0,
       message: '获取文章列表成功！',
@@ -54,8 +57,10 @@ exports.getArticleList = (req, res) => {
 exports.deleteArticleById = (req, res) => {
   const deleteSql = `update ev_articles set is_delete=1 where id=?`;
   db.query(deleteSql, req.params.id, (err, results) => {
-    if (err) return res.cc(err);
-    if (results.affectedRows !== 1) return res.cc('删除文章失败！');
+    if (err)
+      return res.cc(err);
+    if (results.affectedRows !== 1)
+      return res.cc('删除文章失败！');
     res.cc('删除文章成功！', 0);
   });
 };
@@ -64,8 +69,10 @@ exports.deleteArticleById = (req, res) => {
 exports.getArticleById = (req, res) => {
   const querySql = `select * from ev_articles where id=?`;
   db.query(querySql, req.params.id, (err, results) => {
-    if (err) return res.cc(err);
-    if (results.length !== 1) return res.cc('获取文章详情失败！');
+    if (err)
+      return res.cc(err);
+    if (results.length !== 1)
+      return res.cc('获取文章详情失败！');
     res.send({
       status: 0,
       message: '获取文章详情成功！',
@@ -89,8 +96,10 @@ exports.updateArticleById = (req, res) => {
 
   const updateSql = `update ev_articles set ? where id=?`;
   db.query(updateSql, [articleInfo, req.body.id], (err, results) => {
-    if (err) return res.cc(err);
-    if (results.affectedRows !== 1) return res.cc('更新文章失败！');
+    if (err)
+      return res.cc(err);
+    if (results.affectedRows !== 1)
+      return res.cc('更新文章失败！');
     res.cc('更新文章成功！', 0);
   });
 };

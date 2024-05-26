@@ -13,11 +13,10 @@ const router = new Router({ prefix: '/api' });
 router.post('/login', async (ctx) => {
   // 判断用户提交的登录信息是否正确
   if (
-    ctx.request.body.username !== 'KeeneChen' ||
-    ctx.request.body.password !== '123'
-  ) {
+    ctx.request.body.username !== 'KeeneChen'
+    || ctx.request.body.password !== '123'
+  )
     return (ctx.body = { status: 1, msg: '登录失败' });
-  }
 
   ctx.session.user = ctx.request.body; // 用户的信息
   ctx.session.islogin = true; // 用户的登录状态
@@ -27,9 +26,9 @@ router.post('/login', async (ctx) => {
 
 // 从session中获取数据
 router.get('/user', async (ctx) => {
-  if (!ctx.session.islogin) {
+  if (!ctx.session.islogin)
     return (ctx.body = { status: 1, msg: 'fail' });
-  }
+
   ctx.body = { status: 0, msg: 'success', username: ctx.session.user.username };
 });
 

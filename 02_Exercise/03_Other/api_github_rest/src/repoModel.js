@@ -16,7 +16,7 @@ const repoSchema = new mongoose.Schema({
 const repoModel = mongoose.model(
   'github_starred',
   repoSchema,
-  'github_starred'
+  'github_starred',
 );
 
 module.exports = repoModel;

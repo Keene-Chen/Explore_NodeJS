@@ -17,11 +17,10 @@ client.on('connect', () => {
 
   // 订阅主题
   client.subscribe('myTopic', (err) => {
-    if (!err) {
+    if (!err)
       console.log('Subscribed to myTopic');
-    } else {
+    else
       console.error('Failed to subscribe:', err);
-    }
   });
 
   // 发布主题

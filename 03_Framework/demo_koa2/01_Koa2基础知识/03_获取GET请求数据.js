@@ -6,21 +6,22 @@
  */
 
 const Koa = require('koa');
+
 const app = new Koa();
 
 const host = 'http://127.0.0.1';
 const port = 3000;
 
 app.use(async (ctx) => {
-  let url = ctx.url;
+  const url = ctx.url;
 
   // 从上下文的request对象中获取请求字符串
-  let req_query = ctx.request.query;
-  let req_querystring = ctx.request.querystring;
+  const req_query = ctx.request.query;
+  const req_querystring = ctx.request.querystring;
 
   // 从上下文中直接获取
-  let ctx_query = ctx.query;
-  let ctx_querystring = ctx.querystring;
+  const ctx_query = ctx.query;
+  const ctx_querystring = ctx.querystring;
 
   ctx.body = {
     url,

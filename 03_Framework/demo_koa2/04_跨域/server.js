@@ -5,10 +5,10 @@
  * @details : Koa2 跨域请求
  */
 
+const path = require('node:path');
 const Koa = require('koa');
 const views = require('@ladjs/koa-views');
-const path = require('path');
-const static = require('koa-static');
+const koaStatic = require('koa-static');
 const cors = require('koa-cors');
 const router = require('./router/router');
 
@@ -23,11 +23,11 @@ app.use(cors());
 app.use(
   views(path.join(__dirname, './views'), {
     extension: 'ejs',
-  })
+  }),
 );
 
 // 配置koa-static中间件
-app.use(static(path.join(__dirname, './public')));
+app.use(koaStatic(path.join(__dirname, './public')));
 
 // 加载路由中间件
 app.use(router.routes()).use(router.allowedMethods());

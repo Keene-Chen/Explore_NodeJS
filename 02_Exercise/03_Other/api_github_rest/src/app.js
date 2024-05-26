@@ -24,17 +24,17 @@ db.once('open', () => {
   console.log('数据库连接成功');
   // fileWriteToDB();
   // onlineWriteToDB();
-  let res = repoModel.find({}).exec();
+  const res = repoModel.find({}).exec();
   res.then((data) => {
     data.sort((a, b) => {
-      let nameA = a.name.toLowerCase();
-      let nameB = b.name.toLowerCase();
-      if (nameA < nameB) {
+      const nameA = a.name.toLowerCase();
+      const nameB = b.name.toLowerCase();
+      if (nameA < nameB)
         return -1;
-      }
-      if (nameA > nameB) {
+
+      if (nameA > nameB)
         return 1;
-      }
+
       return 0;
     });
     data.forEach((e) => {

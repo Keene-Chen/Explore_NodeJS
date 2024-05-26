@@ -6,6 +6,7 @@
  */
 
 const Koa = require('koa');
+
 const app = new Koa();
 const host = 'http://localhost:';
 const port = 3000;

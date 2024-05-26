@@ -12,6 +12,7 @@
  */
 
 const Koa = require('koa');
+
 const app = new Koa();
 
 const host = 'http://127.0.0.1';
@@ -21,7 +22,7 @@ const port = 3000;
 app.use(async (ctx) => {
   if (ctx.url === '/' && ctx.method === 'GET') {
     // 当使用GET请求的时候返回表单页面
-    let html = ` <h1>koa2 request post demo</h1>
+    const html = ` <h1>koa2 request post demo</h1>
     <form method="POST" action="/">
       <p>userName</p>
       <input name="userName" /><br/>
@@ -33,11 +34,13 @@ app.use(async (ctx) => {
     </form>`;
 
     ctx.body = html;
-  } else if (ctx.url === '/' && ctx.method === 'POST') {
+  }
+  else if (ctx.url === '/' && ctx.method === 'POST') {
     // 当使用POST请求时解析表单数据并显示
-    let postData = await parsePostData(ctx);
+    const postData = await parsePostData(ctx);
     ctx.body = postData;
-  } else {
+  }
+  else {
     // 其他请求显示404
     ctx.body = '<h1>404 not found</h1>';
   }
@@ -54,7 +57,8 @@ function parsePostData(ctx) {
       ctx.req.addListener('end', () => {
         resolve(parseQueryStr(postdata));
       });
-    } catch (err) {
+    }
+    catch (err) {
       reject(err);
     }
   });
@@ -62,11 +66,11 @@ function parsePostData(ctx) {
 
 // 将POST请求参数字符串解析成JSON
 function parseQueryStr(queryStr) {
-  let queryData = {};
-  let queryStrList = queryStr.split('&');
+  const queryData = {};
+  const queryStrList = queryStr.split('&');
   console.log(queryStrList);
-  for (let [index, queryStr] of queryStrList.entries()) {
-    let itemList = queryStr.split('=');
+  for (const [index, queryStr] of queryStrList.entries()) {
+    const itemList = queryStr.split('=');
     queryData[itemList[0]] = decodeURIComponent(itemList[1]);
   }
   return queryData;

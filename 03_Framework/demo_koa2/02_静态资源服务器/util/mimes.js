@@ -5,7 +5,7 @@
  * @details : 文件类型列表
  */
 
-let mimes = {
+const mimes = {
   css: 'text/css',
   less: 'text/css',
   gif: 'image/gif',

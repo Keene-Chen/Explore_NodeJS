@@ -1,11 +1,11 @@
+const fs = require('node:fs');
 const { Octokit } = require('octokit');
-const fs = require('fs');
 
 const octokit = new Octokit({
   auth: 'sssss',
 });
 
-const fetchAllStarredRepos = async () => {
+async function fetchAllStarredRepos() {
   const perPage = 100;
   let page = 1;
   let results = [];
@@ -13,11 +13,11 @@ const fetchAllStarredRepos = async () => {
   try {
     let response = await octokit.request('GET /user/starred', {
       headers: {
-        Accept: 'application/vnd.github.v3.star+json',
+        'Accept': 'application/vnd.github.v3.star+json',
         'X-GitHub-Api-Version': '2022-11-28',
       },
       per_page: perPage,
-      page: page,
+      page,
       sort: 'created',
     });
 
@@ -27,11 +27,11 @@ const fetchAllStarredRepos = async () => {
     while (response.data.length === perPage) {
       response = await octokit.request('GET /user/starred', {
         headers: {
-          Accept: 'application/vnd.github.v3.star+json',
+          'Accept': 'application/vnd.github.v3.star+json',
           'X-GitHub-Api-Version': '2022-11-28',
         },
         per_page: perPage,
-        page: page,
+        page,
         sort: 'created',
       });
 
@@ -44,10 +44,11 @@ const fetchAllStarredRepos = async () => {
     // Uncomment below line to print the full names of all starred repositories
     // results.forEach((repo) => console.log(repo.name, repo.full_name, repo.html_url, repo.description, repo.topics));
     return results;
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error.message);
   }
-};
+}
 
 // fetchAllStarredRepos().then((res) => {
 //   fs.writeFile(

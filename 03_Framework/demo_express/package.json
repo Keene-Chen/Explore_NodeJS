@@ -1,6 +1,10 @@
 {
   "name": "@keenechen/demo_express",
+  "type": "commonjs",
   "license": "MIT",
+  "scripts": {
+    "app": "nodemon ./06_API_Server/app.js"
+  },
   "dependencies": {
     "@escook/express-joi": "^1.1.1",
     "bcryptjs": "^2.4.3",
@@ -17,9 +21,5 @@
     "multer": "^1.4.5-lts.1",
     "mysql": "^2.18.1",
     "pug": "^3.0.2"
-  },
-  "scripts": {
-    "app": "nodemon ./06_API_Server/app.js"
-  },
-  "type": "commonjs"
+  }
 }

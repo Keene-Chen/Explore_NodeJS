@@ -1,4 +1,4 @@
-const mogoose = require("mongoose");
+const mogoose = require('mongoose');
 
 const playListSchema = new mogoose.Schema({
   diss_name: String,
@@ -10,6 +10,6 @@ const playListSchema = new mogoose.Schema({
   dir_show: Number,
 });
 
-const playListModel = mogoose.model("playList", playListSchema, "PlayList");
+const playListModel = mogoose.model('playList', playListSchema, 'PlayList');
 
 module.exports = playListModel;

@@ -17,7 +17,7 @@ app.use(
     secret: 'KeeneChen !^_^!', // secret 的值为任意字符串
     resave: false,
     saveUninitialized: true,
-  })
+  }),
 ); // session 中间件配置
 app.use(express.static('./public')); // 静态文件服务
 app.use(express.urlencoded({ extended: false })); // 解析 POST 提交过来的表单数据

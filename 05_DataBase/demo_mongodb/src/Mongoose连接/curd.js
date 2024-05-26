@@ -5,18 +5,18 @@
  * @details : curd
  */
 
-import mongoose from 'mongoose';
 import userModel from './userModel.js';
-import { unsubscribe } from 'diagnostics_channel';
 
 // 执行查询
 async function executeQuery(queryFunction, cond) {
   try {
     const result = await queryFunction.bind(userModel)(cond).exec();
     console.log(result);
-  } catch (err) {
+  }
+  catch (err) {
     console.log(err);
-  } finally {
+  }
+  finally {
     // await mongoose.connection.close();
   }
 }
@@ -28,6 +28,7 @@ export async function create(cond) {
 
 // 添加数据-save
 export async function save(cond) {
+  /* eslint-disable-next-line new-cap */
   const user = new userModel(cond);
   await executeQuery(user.save, cond);
 }

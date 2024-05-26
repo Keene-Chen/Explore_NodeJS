@@ -1,5 +1,5 @@
-let fn = () => {
+function fn() {
   console.log('asd');
-};
+}
 
 fn();

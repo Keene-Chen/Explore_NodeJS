@@ -1,6 +1,6 @@
+const mongoose = require('mongoose');
 const getStars = require('./get_stars');
 const repoModel = require('./repoModel');
-const mongoose = require('mongoose');
 
 /**
  * 将数据写入数据库
@@ -32,9 +32,11 @@ async function onlineWriteToDB() {
     }));
     await repoModel.create(repoData);
     console.log('写入数据库成功');
-  } catch (err) {
+  }
+  catch (err) {
     console.error('写入数据库失败', err);
-  } finally {
+  }
+  finally {
     mongoose.connection.close();
   }
 }

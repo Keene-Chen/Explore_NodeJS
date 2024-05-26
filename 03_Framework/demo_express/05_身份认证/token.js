@@ -35,10 +35,12 @@ const port = 3000;
 
 // 允许跨域资源共享
 const cors = require('cors');
+
 app.use(cors());
 
 // 解析 post 表单数据的中间件
 const bodyParser = require('body-parser');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // 定义密钥
@@ -47,7 +49,7 @@ const secretKey = 'KeeneChen !^_^!';
 app.use(
   expressJWT({ secret: secretKey, algorithms: ['HS256'] }).unless({
     path: [/^\/api\//],
-  })
+  }),
 );
 
 // 登录接口

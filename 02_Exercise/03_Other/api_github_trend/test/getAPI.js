@@ -1,27 +1,28 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const { default: axios } = require('axios');
-const fs = require('fs');
-const path = require('path');
 const cheerio = require('cheerio');
 const { isNil, omitBy } = require('lodash');
 
 const baseUrl = 'https://github.com/trending';
 
-const getGitHubData = async () => {
+async function getGitHubData() {
   try {
     const response = await axios.get(baseUrl);
     return response.data;
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
     return null;
   }
-};
+}
 
-const htmlWriteFile = async () => {
+async function htmlWriteFile() {
   const html = await getRepositories();
   fs.writeFileSync(path.join(__dirname, '../res/repo.html'), html);
-};
+}
 
-const getRepositories = async ({ language = '', since = 'daily', spokenLanguage = '' } = {}) => {
+async function getRepositories({ language = '', since = 'daily', spokenLanguage = '' } = {}) {
   const html = await fs.promises.readFile(path.join(__dirname, '../res/repo.html'));
   const $ = cheerio.load(html);
   return $('.Box article.Box-row')
@@ -30,7 +31,7 @@ const getRepositories = async ({ language = '', since = 'daily', spokenLanguage 
       const $repo = $(repo);
       const description = $repo.find('.col-9').text().trim();
       const title = $repo.find('.h3').text().trim();
-      const [username, repoName] = title.split('/').map((v) => v.trim());
+      const [username, repoName] = title.split('/').map(v => v.trim());
       const relativeUrl = $repo.find('.h3 a').attr('href');
       const currentPeriodStarsString = $repo.find('.float-sm-right').text().trim() || '';
       const builtBy = $repo
@@ -51,12 +52,12 @@ const getRepositories = async ({ language = '', since = 'daily', spokenLanguage 
       const langNode = $repo.find('[itemprop=programmingLanguage]');
       const lang = langNode.length ? langNode.text().trim() : null;
       const stars = Number.parseInt(
-        $repo.find(".mr-3 svg[aria-label='star']").first().parent().text().trim().replace(',', '') || '0',
-        10
+        $repo.find('.mr-3 svg[aria-label=\'star\']').first().parent().text().trim().replace(',', '') || '0',
+        10,
       );
       const forks = Number.parseInt(
-        $repo.find("svg[aria-label='fork']").first().parent().text().trim().replace(',', '') || '0',
-        10
+        $repo.find('svg[aria-label=\'fork\']').first().parent().text().trim().replace(',', '') || '0',
+        10,
       );
       const currentPeriodStars = Number.parseInt(currentPeriodStarsString.split(' ')[0].replace(',', '') || '0', 10);
 
@@ -75,10 +76,10 @@ const getRepositories = async ({ language = '', since = 'daily', spokenLanguage 
           forks,
           currentPeriodStars,
         },
-        isNil
+        isNil,
       );
     });
-};
+}
 
 // (async () => {
 //   const rest = await getRepositories();
@@ -116,7 +117,7 @@ async function getDevelopers({ language = '', since = 'daily' } = {}) {
               }
             : null,
         },
-        isNil
+        isNil,
       );
     });
 }

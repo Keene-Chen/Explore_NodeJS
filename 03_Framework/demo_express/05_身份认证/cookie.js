@@ -22,9 +22,9 @@ app.get('/set', (req, res) => {
 
 // 获取 cookie
 app.get('/get', (req, res, next) => {
-  let isLogin = req.cookies.isLogin;
+  const isLogin = req.cookies.isLogin;
   console.log(isLogin);
-  res.send('isLogin:' + isLogin);
+  res.send(`isLogin:${isLogin}`);
 });
 
 app.listen(port, () => {

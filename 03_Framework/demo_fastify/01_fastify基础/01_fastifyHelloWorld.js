@@ -1,4 +1,4 @@
-// ESM
+const process = require('node:process');
 const fastify = require('fastify')({
   logger: true,
 });
@@ -10,12 +10,13 @@ fastify.get('/', async (request, reply) => {
 /**
  * Run the server!
  */
-const start = async () => {
+async function start() {
   try {
     await fastify.listen({ port: 3000 });
-  } catch (err) {
+  }
+  catch (err) {
     fastify.log.error(err);
     process.exit(1);
   }
-};
+}
 start();

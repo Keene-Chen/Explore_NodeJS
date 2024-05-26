@@ -1,4 +1,5 @@
 const redis = require('redis');
+
 const client = redis.createClient(6379, 'hello-chen.cn');
 // client.auth(123456); // 如果没有设置密码 是不需要这一步的
 /* client.on('connect', function () {
@@ -17,8 +18,7 @@ client.on('error', (err) => {
 });
 
 client.set('name', 'dsad', (err, ret) => {
-  console.log(ret);
+  console.log(err, ret);
 });
 
 client.get('name1', redis.print);
-

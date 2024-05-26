@@ -5,8 +5,8 @@
  * @details : koa使用pug模板引擎
  */
 
+const path = require('node:path');
 const Koa = require('koa');
-const path = require('path');
 const views = require('@ladjs/koa-views');
 
 const app = new Koa();
@@ -17,11 +17,11 @@ const port = 3000;
 app.use(
   views(path.join(__dirname, './views'), {
     extension: 'pug',
-  })
+  }),
 );
 
 app.use(async (ctx) => {
-  let title = 'Hello Koa2 pug';
+  const title = 'Hello Koa2 pug';
   await ctx.render('index', { title });
 });
 

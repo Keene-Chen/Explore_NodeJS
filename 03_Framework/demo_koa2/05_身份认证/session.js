@@ -5,12 +5,12 @@
  * @details : koa-session
  */
 
+const path = require('node:path');
 const Koa = require('koa');
 const session = require('koa-session');
-const router = require('./router/router');
-const static = require('koa-static');
-const path = require('path');
+const static1 = require('koa-static');
 const { koaBody } = require('koa-body');
+const router = require('./router/router');
 
 const app = new Koa();
 const host = 'http://127.0.0.1';
@@ -43,7 +43,7 @@ app.use(koaBody({ urlencoded: true }));
 app.use(router.routes()).use(router.allowedMethods());
 
 // 配置静态资源中间件
-app.use(static(path.join(__dirname, 'public')));
+app.use(static1(path.join(__dirname, 'public')));
 
 // 处理 404 错误
 app.use(async (ctx) => {

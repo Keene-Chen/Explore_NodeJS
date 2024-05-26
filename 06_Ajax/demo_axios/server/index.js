@@ -14,16 +14,16 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     cb(null, `${file.fieldname}-${Date.now()}-${file.originalname}`);
-  }
+  },
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 // 文件上传路由
 app.post('/upload', upload.single('file'), (req, res) => {
-  if (!req.file) {
+  if (!req.file)
     return res.status(400).send('No file uploaded.');
-  }
+
   return res.send('File uploaded successfully.');
 });
 

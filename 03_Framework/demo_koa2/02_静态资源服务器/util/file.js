@@ -5,16 +5,16 @@
  * @details : 读取文件内容
  */
 
-const fs = require('fs');
+const fs = require('node:fs');
 
 /**
  * 读取文件方法
- * @param  {string} 文件本地的绝对路径
+ * @param  {string} filePath 文件本地的绝对路径
  * @return {string|binary}
  */
 function file(filePath) {
   //   let content = fs.readFileSync(filePath, 'binary');
-  let content = fs.readFileSync(filePath);
+  const content = fs.readFileSync(filePath);
   return content;
 }
 

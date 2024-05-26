@@ -10,9 +10,9 @@ function omitNil(object) {
 
 function removeDefaultAvatarSize(src) {
   /* istanbul ignore if */
-  if (!src) {
+  if (!src)
     return src;
-  }
+
   return src.replace(/\?s=.*$/, '');
 }
 
@@ -22,22 +22,22 @@ async function fetchRepositories({
   spokenLanguage = '',
 } = {}) {
   const url = `${GITHUB_URL}/trending/${encodeURIComponent(
-    language
+    language,
   )}?since=${since}&spoken_language_code=${encodeURIComponent(spokenLanguage)}`;
   const data = await fetch(url);
   const $ = cheerio.load(await data.text());
   return (
     $('.Box article.Box-row')
       .get()
-      // eslint-disable-next-line complexity
+
       .map((repo) => {
         const $repo = $(repo);
         const title = $repo.find('.h3').text().trim();
-        const [username, repoName] = title.split('/').map((v) => v.trim());
+        const [username, repoName] = title.split('/').map(v => v.trim());
         const relativeUrl = $repo.find('.h3').find('a').attr('href');
-        const currentPeriodStarsString =
-          $repo.find('.float-sm-right').text().trim() ||
-          /* istanbul ignore next */ '';
+        const currentPeriodStarsString
+          = $repo.find('.float-sm-right').text().trim()
+          /* istanbul ignore next */ || '';
 
         const builtBy = $repo
           .find('span:contains("Built by")')
@@ -74,30 +74,30 @@ async function fetchRepositories({
           description: $repo.find('p.my-1').text().trim() || '',
           language: lang,
           languageColor: langColor,
-          stars: parseInt(
+          stars: Number.parseInt(
             $repo
-              .find(".mr-3 svg[aria-label='star']")
+              .find('.mr-3 svg[aria-label=\'star\']')
               .first()
               .parent()
               .text()
               .trim()
               .replace(',', '') || /* istanbul ignore next */ '0',
-            10
+            10,
           ),
-          forks: parseInt(
+          forks: Number.parseInt(
             $repo
-              .find("svg[aria-label='fork']")
+              .find('svg[aria-label=\'fork\']')
               .first()
               .parent()
               .text()
               .trim()
               .replace(',', '') || /* istanbul ignore next */ '0',
-            10
+            10,
           ),
-          currentPeriodStars: parseInt(
-            currentPeriodStarsString.split(' ')[0].replace(',', '') ||
-              /* istanbul ignore next */ '0',
-            10
+          currentPeriodStars: Number.parseInt(
+            currentPeriodStarsString.split(' ')[0].replace(',', '')
+            /* istanbul ignore next */ || '0',
+            10,
           ),
           builtBy,
         });
@@ -107,7 +107,7 @@ async function fetchRepositories({
 
 async function fetchDevelopers({ language = '', since = 'daily' } = {}) {
   const data = await fetch(
-    `${GITHUB_URL}/trending/developers/${language}?since=${since}`
+    `${GITHUB_URL}/trending/developers/${language}?since=${since}`,
   );
   const $ = cheerio.load(await data.text());
   return $('.Box article.Box-row')
@@ -140,12 +140,12 @@ async function fetchDevelopers({ language = '', since = 'daily' } = {}) {
         avatar: removeDefaultAvatarSize($dev.find('img').attr('src')),
         repo: $repo.length
           ? {
-            name: $repo.find('a').text().trim(),
-            description:
-              $repo.find('.f6.mt-1').text().trim() ||
-                /* istanbul ignore next */ '',
-            url: `${GITHUB_URL}${$repo.find('a').attr('href')}`,
-          }
+              name: $repo.find('a').text().trim(),
+              description:
+              $repo.find('.f6.mt-1').text().trim()
+              /* istanbul ignore next */ || '',
+              url: `${GITHUB_URL}${$repo.find('a').attr('href')}`,
+            }
           : null,
       });
     });

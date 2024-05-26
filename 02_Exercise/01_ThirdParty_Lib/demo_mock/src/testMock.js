@@ -1,6 +1,6 @@
 import Mock from 'mockjs';
 
-let obj = {
+const obj = {
   number: Mock.Random.integer(),
   name: Mock.Random.cname(),
   age: Mock.Random.integer(18, 35),
@@ -11,13 +11,13 @@ let obj = {
   ],
 };
 
-let arr = [];
+const arr = [];
 
 arr.push(obj);
 arr.push(obj);
 arr.push(obj);
 
 for (let i = 0; i < arr.length; i++) {
-  let string = JSON.stringify(arr[i], null, '  ');
+  const string = JSON.stringify(arr[i], null, '  ');
   console.log(string, ',');
 }

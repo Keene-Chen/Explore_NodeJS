@@ -5,16 +5,17 @@
  * @details : koa-static中间件静态资源服务器
  */
 
+const path = require('node:path');
 const Koa = require('koa');
-const static = require('koa-static');
-const path = require('path');
+const static1 = require('koa-static');
+
 const app = new Koa();
 
 const host = 'http://127.0.0.1';
 const port = 3000;
 
 // 配置koa-static中间件
-app.use(static(path.join(__dirname, './static')));
+app.use(static1(path.join(__dirname, './static')));
 
 app.use(async (ctx) => {
   ctx.body = 'Hello Koa2';

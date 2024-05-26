@@ -28,7 +28,6 @@ const root = {
     return obj[classNo];
   },
   account({ username }) {
-
     const name = username;
     const age = 18;
     const sex = true;
@@ -46,19 +45,19 @@ const app = express();
 app.use(
   '/graphql',
   graphqlHTTP({
-    schema: schema,
+    schema,
     rootValue: root,
     graphiql: true,
-  })
+  }),
 );
 
 app.get(
   '/',
   graphqlHTTP({
-    schema: schema,
+    schema,
     rootValue: root,
     graphiql: false,
-  })
+  }),
 );
 
 app.listen(prot, () => {

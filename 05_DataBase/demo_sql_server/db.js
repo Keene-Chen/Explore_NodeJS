@@ -1,4 +1,5 @@
 const mssql = require('mssql');
+
 const db = {};
 const config = {
   user: 'sa',
@@ -16,28 +17,30 @@ const config = {
   },
 };
 
-//执行sql,返回数据.
+// 执行sql,返回数据.
 db.sql = function (sql, callBack) {
-  var connectionPool = new mssql.Connection(config, function (err) {
+  const connectionPool = new mssql.Connection(config, (err) => {
     if (err) {
       console.log(err);
       return;
     }
-    var ps = new mssql.PreparedStatement(connection);
-    ps.prepare(sql, function (err) {
+    /* eslint-disable-next-line no-undef */
+    const ps = new mssql.PreparedStatement(connection);
+    ps.prepare(sql, (err) => {
       if (err) {
         console.log(err);
         return;
       }
-      ps.execute('', function (err, result) {
+      ps.execute('', (err, result) => {
         if (err) {
           console.log(err);
           return;
         }
 
-        ps.unprepare(function (err) {
+        ps.unprepare((err) => {
           if (err) {
             console.log(err);
+            /* eslint-disable-next-line no-undef */
             callback(err, null);
             return;
           }

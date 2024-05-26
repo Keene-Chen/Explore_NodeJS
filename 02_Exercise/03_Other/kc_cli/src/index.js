@@ -7,9 +7,10 @@
  * @since  2023.12.13-21:43:46
  */
 
+import fs from 'node:fs';
+import process from 'node:process';
 import { program } from 'commander';
 import inquirer from 'inquirer';
-import fs from 'node:fs';
 import { checkPath, downloadTemp } from './utils.js';
 
 let json = fs.readFileSync('./package.json', 'utf-8');
@@ -26,8 +27,8 @@ program
 program
   .command('create <project>')
   .alias('cr')
-  .action(project => {
-    //命令行交互工具
+  .action((project) => {
+    // 命令行交互工具
     inquirer
       .prompt([
         {
@@ -43,17 +44,15 @@ program
           default: false,
         },
       ])
-      .then(answers => {
+      .then((answers) => {
         if (checkPath(answers.projectName)) {
           console.log('文件已存在');
           return;
         }
 
-        if (answers.isTs) {
+        if (answers.isTs)
           downloadTemp('ts', answers.projectName);
-        } else {
-          downloadTemp('js', answers.projectName);
-        }
+        else downloadTemp('js', answers.projectName);
       });
   });
 

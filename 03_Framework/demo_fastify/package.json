@@ -1,8 +1,8 @@
 {
   "name": "@keenechen/demo_fastify",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "main": "index.js",
   "dependencies": {
     "@fastify/mongodb": "^8.0.0",
     "fastify": "^4.27.0",

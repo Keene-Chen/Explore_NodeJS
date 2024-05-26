@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+
 const router = express.Router();
 // 导入验证表单数据的中间件
 const expressJoi = require('@escook/express-joi');
@@ -25,21 +26,21 @@ router.get('/userinfo', userinfo_handler.getUserInfo);
 router.post(
   '/userinfo',
   expressJoi(update_userinfo_schema),
-  userinfo_handler.updateUserInfo
+  userinfo_handler.updateUserInfo,
 );
 
 // 更新用户密码
 router.post(
   '/updatepwd',
   expressJoi(update_password_schema),
-  userinfo_handler.updatePassword
+  userinfo_handler.updatePassword,
 );
 
 // 更新用户头像
 router.post(
   '/update/avatar',
   expressJoi(update_avatar_schema),
-  userinfo_handler.updateAvatar
+  userinfo_handler.updateAvatar,
 );
 
 module.exports = router;

@@ -26,7 +26,8 @@ db.getConnection((err, conn) => {
   // 查询 users 表中所有的数据
   const sqlStr = 'select * from test limit 10';
   db.query(sqlStr, (err, res) => {
-    if (err) return console.log(err.message);
+    if (err)
+      return console.log(err.message);
     // 注意：如果执行的是 select 查询语句，则执行的结果是数组
     console.log(res);
   });
@@ -103,5 +104,6 @@ db.getConnection((err, conn) => {
     }
   }); */
 
-  if (err) return console.log(err.message);
+  if (err)
+    return console.log(err.message);
 });

@@ -10,9 +10,9 @@ const cors = require('cors');
 // 导入 Joi 来定义验证规则
 const joi = require('joi');
 // 导入配置文件
+const { expressjwt: expressJWT } = require('express-jwt');
 const config = require('./config');
 // 导入解析 Token 的包
-const { expressjwt: expressJWT } = require('express-jwt');
 // 导入路由模块
 const userRouter = require('./router/user');
 const userinfoRouter = require('./router/userinfo');
@@ -34,8 +34,8 @@ app.use('/uploads', express.static('./uploads'));
 /**
  * @function : res.cc(err, status = 1)
  * @desc : 全局中间件,响应错误数据
- * @param {Object} err : 错误对象
- * @param {Number} status : 状态码,默认为 1表示失败
+ * @param {object} err : 错误对象
+ * @param {number} status : 状态码,默认为 1表示失败
  */
 app.use((req, res, next) => {
   res.cc = (err, status = 1) => {
@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 app.use(
   expressJWT({ secret: config.jwtSecretKey, algorithms: ['HS256'] }).unless({
     path: [/^\/api\//],
-  })
+  }),
 );
 
 // 路由中间件配置
@@ -69,10 +69,12 @@ app.use('/my/article', articleRouter);
 // 全局错误中间件配置
 app.use((err, req, res, next) => {
   // 数据验证失败
-  if (err instanceof joi.ValidationError) return res.cc(err);
+  if (err instanceof joi.ValidationError)
+    return res.cc(err);
 
   // 捕获身份认证失败的错误
-  if (err.name === 'UnauthorizedError') return res.cc('身份认证失败！');
+  if (err.name === 'UnauthorizedError')
+    return res.cc('身份认证失败！');
 
   // 未知错误
   res.cc(err);

@@ -6,6 +6,7 @@
  */
 
 const Koa = require('koa');
+
 const app = new Koa();
 
 const host = 'http://127.0.0.1';
@@ -22,7 +23,8 @@ app.use(async (ctx) => {
       overwrite: false, // 是否允许重写
     });
     ctx.body = 'cookie is ok';
-  } else {
+  }
+  else {
     ctx.body = 'hello world';
   }
 });

@@ -1,18 +1,17 @@
-const fs = require('fs');
-const repoModel = require('./repoModel');
+const fs = require('node:fs');
 const mongoose = require('mongoose');
+const repoModel = require('./repoModel');
 
-const filePath =
-  'E:\\ZM\\NodeJS\\Yarn_Project\\GitHub_REST_API\\res\\starred_repos.json';
+const filePath
+  = 'E:\\ZM\\NodeJS\\Yarn_Project\\GitHub_REST_API\\res\\starred_repos.json';
 
 function getStars(filePath) {
   return new Promise((resolve, reject) => {
     fs.readFile(filePath, 'utf-8', (err, data) => {
-      if (err) {
+      if (err)
         reject(err);
-      } else {
+      else
         resolve(JSON.parse(data));
-      }
     });
   });
 }
@@ -25,7 +24,7 @@ async function fileWriteToDB() {
     const stars = await getStars(filePath).then((data) => {
       return data;
     });
-    const repoData = stars.map((data) => ({
+    const repoData = stars.map(data => ({
       name: data.name,
       full_name: data.full_name,
       html_url: data.html_url,
@@ -39,9 +38,11 @@ async function fileWriteToDB() {
     }));
     await repoModel.create(repoData);
     console.log('写入数据库成功');
-  } catch (err) {
+  }
+  catch (err) {
     console.error('写入数据库失败', err);
-  } finally {
+  }
+  finally {
     mongoose.connection.close();
   }
 }

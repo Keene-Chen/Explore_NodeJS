@@ -5,10 +5,10 @@
  * @details : NodeJS 跨域
  */
 
+const path = require('node:path');
 const express = require('express');
-const path = require('path');
-const apiRouter = require('./router/apiRouter');
 const cors = require('cors');
+const apiRouter = require('./router/apiRouter');
 
 const app = express();
 const port = 3000;
@@ -41,6 +41,7 @@ app.use('*', (req, res) => {
 // 全局错误处理
 app.use((err, req, res, next) => {
   res.status(500).render('500');
+  console.log(err);
 });
 
 app.listen(port, () => {

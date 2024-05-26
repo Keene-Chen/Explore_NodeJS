@@ -10,11 +10,11 @@ import axios from 'axios';
 // get请求
 axios
   .get('https://httpbin.org/get')
-  .then(response => {
+  .then((response) => {
     // 处理成功情况
     console.log(response.data);
   })
-  .catch(error => {
+  .catch((error) => {
     // 处理错误情况
     console.log(error);
   })
@@ -27,9 +27,9 @@ axios
 axios
   .post('https://httpbin.org/post', {
     firstName: 'Fred',
-    lastName: 'Flintstone'
+    lastName: 'Flintstone',
   })
-  .then(response => {
+  .then((response) => {
     console.log(response.data);
   });
 
@@ -38,21 +38,21 @@ axios.all([axios.get('https://httpbin.org/get'), axios.get('https://httpbin.org/
   axios.spread((res1, res2) => {
     console.log(res1.data);
     console.log(res2.data);
-  })
+  }),
 );
 
 // delete请求
-axios.delete('https://httpbin.org/delete').then(response => {
+axios.delete('https://httpbin.org/delete').then((response) => {
   console.log(response.data);
 });
 
 // put请求
-axios.put('https://httpbin.org/put', { firstName: 'Fred', lastName: 'Flintstone' }).then(response => {
+axios.put('https://httpbin.org/put', { firstName: 'Fred', lastName: 'Flintstone' }).then((response) => {
   console.log(`${response.data}\n`);
 });
 console.log();
 
 // patch请求
-axios.patch('https://httpbin.org/patch', { firstName: 'Fred', lastName: 'Flintstone' }).then(response => {
+axios.patch('https://httpbin.org/patch', { firstName: 'Fred', lastName: 'Flintstone' }).then((response) => {
   console.log(`${response.data}\n`);
 });

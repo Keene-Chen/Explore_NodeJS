@@ -5,9 +5,11 @@ async function findOne(condition) {
   try {
     const result = await repoModel.findOne(condition).exec();
     console.log(result);
-  } catch (err) {
+  }
+  catch (err) {
     console.log(err);
-  } finally {
+  }
+  finally {
     mongoose.connection.close();
   }
 }
@@ -16,9 +18,11 @@ async function find(condition) {
   try {
     const result = await repoModel.find(condition).exec();
     console.log(result.length);
-  } catch (err) {
+  }
+  catch (err) {
     console.log(err);
-  } finally {
+  }
+  finally {
     mongoose.connection.close();
   }
 }

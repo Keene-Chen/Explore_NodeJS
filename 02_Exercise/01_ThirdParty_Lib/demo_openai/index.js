@@ -11,7 +11,7 @@ const openai = axios.create({
   baseURL: 'https://api.openai.com/v1',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer ' + config.OPENAI_API_KEY,
+    'Authorization': `Bearer ${config.OPENAI_API_KEY}`,
   },
   httpsAgent: agent,
   proxy: false,
@@ -29,7 +29,8 @@ async function getCompletion() {
     });
     return result;
     // console.log(result.data);
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 }
@@ -46,9 +47,9 @@ async function getCompletion() {
 openai
   .get('/models')
   .then((res) => {
-    const ids = res.data.data.map((e) => e.id); // 获取所有id
+    const ids = res.data.data.map(e => e.id); // 获取所有id
     ids.sort(); // 对id进行排序
-    ids.forEach((id) => console.log(id)); // 打印排好序的id
+    ids.forEach(id => console.log(id)); // 打印排好序的id
   })
   .catch((err) => {
     console.error(err);

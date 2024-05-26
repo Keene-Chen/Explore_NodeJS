@@ -1,6 +1,6 @@
+const fs = require('node:fs');
+const path = require('node:path');
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
 
 const baseURL = 'http://localhost:3300';
 const apiURL = '/lyric';
@@ -15,8 +15,9 @@ axios
       path.join(__dirname, './lyric.txt'),
       res.data.data.lyric,
       (err) => {
-        if (err) throw err;
-      }
+        if (err)
+          throw err;
+      },
     );
   })
   .catch((err) => {

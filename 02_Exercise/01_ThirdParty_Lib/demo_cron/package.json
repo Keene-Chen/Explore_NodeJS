@@ -2,13 +2,13 @@
   "name": "@keenechen/demo_cron",
   "version": "1.0.0",
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cron": "^3.1.7",
     "dayjs": "^1.11.11"

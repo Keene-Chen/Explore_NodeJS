@@ -6,6 +6,7 @@
  */
 
 const express = require('express');
+
 const app = express();
 const port = 3000;
 
@@ -52,47 +53,47 @@ app.get(
   },
   (req, res) => {
     res.send('Hello from B!');
-  }
+  },
 );
 
 // 一组回调函数可以处理一个路由
-var cb0 = (req, res, next) => {
+function cb0(req, res, next) {
   console.log('CB0');
   next();
-};
+}
 
-var cb1 = (req, res, next) => {
+function cb1(req, res, next) {
   console.log('CB1');
   next();
-};
+}
 
-var cb2 = (req, res) => {
+function cb2(req, res) {
   res.send('Hello from C!');
-};
+}
 
 app.get('/example/c', [cb0, cb1, cb2]);
 
 // 独立函数与一组函数的组合可以处理一个路由
-var cb0 = (req, res, next) => {
+function cb3(req, res, next) {
   console.log('CB0');
   next();
-};
+}
 
-var cb1 = (req, res, next) => {
+function cb4(req, res, next) {
   console.log('CB1');
   next();
-};
+}
 
 app.get(
   '/example/d',
-  [cb0, cb1],
+  [cb3, cb4],
   (req, res, next) => {
     console.log('the response will be sent by the next function ...');
     next();
   },
   (req, res) => {
     res.send('Hello from D!');
-  }
+  },
 );
 
 app.listen(port, () => {

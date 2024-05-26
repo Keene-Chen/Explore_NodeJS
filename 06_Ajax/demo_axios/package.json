@@ -1,10 +1,13 @@
 {
-  "author": "KeeneChen",
-  "description": "",
-  "keywords": [],
-  "license": "ISC",
-  "main": "index.js",
   "name": "@keenechen/pnpm_axios",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "KeeneChen",
+  "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
   "prettier": {
     "arrowParens": "avoid",
     "bracketSpacing": true,
@@ -17,15 +20,12 @@
     "trailingComma": "none",
     "useTabs": false
   },
-  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
     "server": "node ./server/index.js"
   },
-  "type": "module",
-  "version": "1.0.0",
   "dependencies": {
     "axios": "^1.7.2",
     "vite": "^5.2.11",

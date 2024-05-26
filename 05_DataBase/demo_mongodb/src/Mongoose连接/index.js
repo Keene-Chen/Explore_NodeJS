@@ -6,10 +6,9 @@
  */
 
 import mongoose from 'mongoose';
-import userModel from './userModel.js';
+import chalk from 'chalk';
 import * as curd from './curd.js';
 // 导入彩色日志模块
-import chalk from 'chalk';
 
 // 连接MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/test', {
@@ -22,13 +21,13 @@ const db = mongoose.connection;
 // 连接成功
 db.on('connected', () => {
   console.log(
-    chalk.cyan('Mongoose connection open to mongodb://localhost:27017/test')
+    chalk.cyan('Mongoose connection open to mongodb://localhost:27017/test'),
   );
 });
 
 // 连接异常
 db.on('error', (err) => {
-  console.log(chalk.red('Mongoose connection error: ' + err));
+  console.log(chalk.red(`Mongoose connection error: ${err}`));
 });
 
 // 连接断开
