@@ -1,20 +1,32 @@
 {
   "name": "explore_nodejs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "type": "module",
-  "scripts": {
-    "clean": "node scripts/clean.js",
-    "postinstall": "simple-git-hooks"
-  },
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "author": "KeeneChen <keenechen@qq.com>",
+  "license": "GPL-3.0-only",
   "keywords": [
     "nodejs",
     "javascript"
   ],
-  "author": "KeeneChen <keenechen@qq.com>",
-  "license": "GPL-3.0-only",
-  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "clean": "node scripts/clean.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postinstall": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.18.1",
+    "eslint": "^9.3.0",
+    "execa": "^9.1.0",
+    "lint-staged": "^15.2.5",
+    "picocolors": "^1.0.1",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.7",
+    "simple-git-hooks": "^2.11.1"
+  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "commit-msg": "node scripts/verify-commit.js"
@@ -27,12 +39,5 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
-  },
-  "devDependencies": {
-    "execa": "^9.1.0",
-    "lint-staged": "^15.2.5",
-    "picocolors": "^1.0.1",
-    "rimraf": "^5.0.7",
-    "simple-git-hooks": "^2.11.1"
   }
 }
